@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { LeftArrowIcon, RightArrowIcon } from "./Icon";
 
@@ -72,18 +73,38 @@ const BannerImage = styled.img`
 `;
 
 const MainBanner = () => {
+  const MIN_PAGE = 1;
+  const MAX_PAGE = 2;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const decreasePage = () => {
+    if (currentPage - 1 < MIN_PAGE) {
+      setCurrentPage(MAX_PAGE);
+      return;
+    }
+    setCurrentPage(currentPage - 1);
+  };
+
+  const increasePage = () => {
+    if (currentPage + 1 > MAX_PAGE) {
+      setCurrentPage(MIN_PAGE);
+      return;
+    }
+    setCurrentPage(currentPage + 1);
+  };
+
   return (
     <BannerContainer>
-      <LeftArrowIconWrapper>
+      <LeftArrowIconWrapper onClick={decreasePage}>
         <LeftArrowIcon />
       </LeftArrowIconWrapper>
-      <RightArrowIconWrapper>
+      <RightArrowIconWrapper onClick={increasePage}>
         <RightArrowIcon />
       </RightArrowIconWrapper>
       <BannerPage>
-        <CurrentPage>1&nbsp;</CurrentPage> / 2
+        <CurrentPage>{currentPage}&nbsp;</CurrentPage> / 2
       </BannerPage>
-      <BannerImage src={process.env.PUBLIC_URL + `banner/banner1.png`} alt="banner" />
+      <BannerImage src={process.env.PUBLIC_URL + `banner/banner${currentPage}.png`} alt="banner" />
     </BannerContainer>
   );
 };
