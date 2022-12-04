@@ -3,6 +3,8 @@ import styled from "styled-components";
 const ItemContainer = styled.div`
   width: 120px;
   height: 170px;
+
+  cursor: pointer;
 `;
 
 const ItemImage = styled.img`
