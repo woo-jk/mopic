@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const ItemContainer = styled.div`
   width: 50%;
-  height: 170px;
 
   cursor: pointer;
 `;

@@ -4,6 +4,7 @@ import { LeftArrowIcon, RightArrowIcon } from "../Icon";
 
 const BannerContainer = styled.div`
   position: relative;
+  margin-bottom: 15px;
 `;
 
 const LeftArrowIconWrapper = styled.div`

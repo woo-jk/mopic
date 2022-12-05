@@ -3,8 +3,8 @@ import ListTitle from "../ListTitle";
 import RecommendationItem from "./RecommendationItem";
 
 const RecommendationListContainer = styled.div`
-  margin-top: 30px;
-  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const ItemContainer = styled.div`

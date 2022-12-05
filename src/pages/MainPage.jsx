@@ -1,5 +1,6 @@
 import MainBanner from "../components/mainPage/MainBanner";
 import MainHeader from "../components/mainPage/MainHeader";
+import ModelWorkList from "../components/mainPage/modelWork/ModelWorkList";
 import RecommendationList from "../components/mainPage/recommendation/RecommendationList";
 import StudioList from "../components/mainPage/studio/StudioList";
 
@@ -72,6 +73,30 @@ const studioDataList = [
   },
 ];
 
+const modelWorkDataList = [
+  {
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1554519934-e32b1629d9ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+    title: "잠실 포인트 붙임/리터치 모델 구합니다",
+    category: "패션/뷰티",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1516918842892-1c43ea4ad867?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    title: "인스타그램 스냅 사진 모델",
+    category: "촬영",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1594051843833-0eb76ea1b20b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80",
+    title: "여성 풀페이스 왁싱 모델 구합니다",
+    category: "패션/뷰티",
+  },
+];
+
 const MainPage = () => {
   return (
     <div>
@@ -79,6 +104,7 @@ const MainPage = () => {
       <MainBanner />
       <RecommendationList dataList={recommendationDataList} />
       <StudioList dataList={studioDataList} />
+      <ModelWorkList dataList={modelWorkDataList} />
     </div>
   );
 };
