@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { LeftArrowIcon, RightArrowIcon } from "./Icon";
+import { LeftArrowIcon, RightArrowIcon } from "../Icon";
 
 const BannerContainer = styled.div`
   position: relative;

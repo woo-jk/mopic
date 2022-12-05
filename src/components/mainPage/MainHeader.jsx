@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LikeIcon, MenuIcon } from "./Icon";
+import { LikeIcon, MenuIcon } from "../Icon";
 
 const HeaderContainer = styled.header`
   display: flex;

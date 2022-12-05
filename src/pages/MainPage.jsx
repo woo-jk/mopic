@@ -1,7 +1,7 @@
-import MainBanner from "../components/MainBanner";
-import MainHeader from "../components/MainHeader";
-import RecommendationList from "../components/RecommendationList";
-import StudioList from "../components/StudioList";
+import MainBanner from "../components/mainPage/MainBanner";
+import MainHeader from "../components/mainPage/MainHeader";
+import RecommendationList from "../components/mainPage/recommendation/RecommendationList";
+import StudioList from "../components/mainPage/studio/StudioList";
 
 const recommendationDataList = [
   {
@@ -27,6 +27,27 @@ const recommendationDataList = [
   },
   {
     id: 4,
+    image:
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "웨딩 촬영",
+    price: "협의",
+  },
+  {
+    id: 5,
+    image:
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "웨딩 촬영",
+    price: "협의",
+  },
+  {
+    id: 6,
+    image:
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "웨딩 촬영",
+    price: "협의",
+  },
+  {
+    id: 7,
     image:
       "https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     title: "웨딩 촬영",

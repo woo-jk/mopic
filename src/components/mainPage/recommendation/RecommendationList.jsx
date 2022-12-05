@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ListTitle from "./ListTitle";
+import ListTitle from "../ListTitle";
 import RecommendationItem from "./RecommendationItem";
 
 const RecommendationListContainer = styled.div`
