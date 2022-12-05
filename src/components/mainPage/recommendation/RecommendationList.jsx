@@ -26,15 +26,63 @@ const ItemContainer = styled.div`
   }
 `;
 
+const EmptyDataContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 170px;
+
+  background: #f1f1f1;
+  border-radius: 6px;
+`;
+
+const EmptyDataText = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 34px;
+
+  letter-spacing: -0.3px;
+
+  color: #969696;
+`;
+
+const RegistrationButton = styled.div`
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 34px;
+
+  letter-spacing: -0.3px;
+
+  color: #502ce8;
+
+  cursor: pointer;
+`;
+
 const RecommendationList = ({ dataList }) => {
   return (
     <RecommendationListContainer>
       <ListTitle text="추천 서비스" />
-      <ItemContainer>
-        {dataList.map((item) => (
-          <RecommendationItem key={item.id} {...item} />
-        ))}
-      </ItemContainer>
+      {dataList.length > 0 ? (
+        <ItemContainer>
+          {dataList.map((item) => (
+            <RecommendationItem key={item.id} {...item} />
+          ))}
+        </ItemContainer>
+      ) : (
+        <EmptyDataContainer>
+          <EmptyDataText>아직 등록된 작업자가 없어요 :(</EmptyDataText>
+          <RegistrationButton>지금 등록하러 가기 &gt;</RegistrationButton>
+        </EmptyDataContainer>
+      )}
     </RecommendationListContainer>
   );
 };
