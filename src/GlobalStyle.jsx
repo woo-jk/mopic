@@ -8,6 +8,8 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR'
 }
 `;
 
