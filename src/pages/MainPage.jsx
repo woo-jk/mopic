@@ -4,11 +4,15 @@ import RecommendationList from "../components/mainPage/recommendation/Recommenda
 import StudioList from "../components/mainPage/studio/StudioList";
 import ModelWorkList from "../components/mainPage/modelWork/ModelWorkList";
 import { recommendationDataList, studioDataList, modelWorkDataList } from "../components/mainPage/dummyData";
+import SideBar from "../components/mainPage/SideBar";
+import { useState } from "react";
 
 const MainPage = () => {
+  const [showSideBar, setShowSideBar] = useState(false);
   return (
     <div>
-      <MainHeader />
+      {showSideBar && <SideBar setShowSideBar={setShowSideBar} />}
+      <MainHeader setShowSideBar={setShowSideBar} />
       <MainBanner />
       <RecommendationList dataList={recommendationDataList} />
       <StudioList dataList={studioDataList} />

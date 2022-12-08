@@ -23,7 +23,11 @@ const IconWrapper = styled.div`
   cursor: pointer;
 `;
 
-const MainHeader = () => {
+const MainHeader = ({ setShowSideBar }) => {
+  const handleClickMenu = () => {
+    setShowSideBar(true);
+  };
+
   return (
     <HeaderContainer>
       <Logo src={process.env.PUBLIC_URL + `mopic_logo.png`} alt="logo" />
@@ -31,7 +35,7 @@ const MainHeader = () => {
         <IconWrapper>
           <LikeIcon />
         </IconWrapper>
-        <IconWrapper>
+        <IconWrapper onClick={handleClickMenu}>
           <MenuIcon />
         </IconWrapper>
       </IconContainer>
