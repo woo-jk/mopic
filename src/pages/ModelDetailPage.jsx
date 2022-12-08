@@ -1,7 +1,7 @@
 import DetailHeader from "../components/detailPage/DetailHeader";
 import DetailImages from "../components/detailPage/DetailImages";
 import Board from "../components/detailPage/board/Board";
-import {modelWorkDataList} from "../components/detailPage/dummyData";
+import { modelWorkDataList } from "../components/detailPage/dummyData";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
@@ -16,8 +16,8 @@ const ModelDetailPage = () => {
   return (
     <PageContainer>
       <DetailHeader />
-      <DetailImages images={data.images}/>
-      <Board {...data}/>
+      <DetailImages images={data.images} />
+      <Board {...data} />
     </PageContainer>
   );
 };
