@@ -52,11 +52,16 @@ const SideBar = ({ userData, setShowSideBar }) => {
     document.body.style.overflow = "unset";
   };
 
+  const myActivityMenu = [{ title: "카테고리1" }, { title: "카테고리2" }];
+
+  const otherMenu = [{ title: "이벤트" }, { title: "공지사항" }];
+
   return (
     <BackGround onClick={handleClickBackGround}>
       <ModalContainer onClick={(e) => e.stopPropagation()}>
         <UserMenu userData={userData} />
-        <SubMenu />
+        <SubMenu title="나의 활동" dataList={myActivityMenu} />
+        <SubMenu title="기타" dataList={otherMenu} />
       </ModalContainer>
     </BackGround>
   );
