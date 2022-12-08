@@ -56,23 +56,39 @@ const ProfileModifyButton = styled.div`
   color: #b8b8b8;
 `;
 
+const NeedLogin = styled.div`
+  height: 100px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #413f3f;
+
+  line-height: 100px;
+
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 const UserMenu = ({ userData }) => {
   return (
     <UserMenuContainer>
-      <UserProfileContainer>
-        <UserNameAndType>
-          <UserName>
-            {userData.name}님
-            <br />
-            안녕하세요!
-          </UserName>
-          <UserType>{userData.type} 작업자</UserType>
-        </UserNameAndType>
-        <UserPictureAndModify>
-          <ProfileIcon />
-          <ProfileModifyButton>프로필 수정</ProfileModifyButton>
-        </UserPictureAndModify>
-      </UserProfileContainer>
+      {userData ? (
+        <UserProfileContainer>
+          <UserNameAndType>
+            <UserName>
+              {userData.name}님
+              <br />
+              안녕하세요!
+            </UserName>
+            <UserType>{userData.type} 작업자</UserType>
+          </UserNameAndType>
+          <UserPictureAndModify>
+            <ProfileIcon />
+            <ProfileModifyButton>프로필 수정</ProfileModifyButton>
+          </UserPictureAndModify>
+        </UserProfileContainer>
+      ) : (
+        <NeedLogin>로그인 해 주세요.</NeedLogin>
+      )}
       <Button disabled={!userData}>구인글 올리기</Button>
     </UserMenuContainer>
   );
