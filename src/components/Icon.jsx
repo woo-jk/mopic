@@ -20,7 +20,7 @@ export const MenuIcon = () => {
 export const LeftArrowIcon = ({ color }) => {
   return (
     <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 12L0 6L6 0L7.4 1.4L2.8 6L7.4 10.6L6 12Z" fill={color} />
+      <path d="M6 12L0 6L6 0L7.4 1.4L2.8 6L7.4 10.6L6 12Z" fill={color || "white"} />
     </svg>
   );
 };

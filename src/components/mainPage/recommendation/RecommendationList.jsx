@@ -17,13 +17,6 @@ const ItemContainer = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-
-  @media (min-width: 440px) {
-    width: 454px;
-  }
-  @media (max-width: 440px) {
-    width: 94vw;
-  }
 `;
 
 const EmptyDataContainer = styled.div`
