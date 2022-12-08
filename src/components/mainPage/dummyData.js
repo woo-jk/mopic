@@ -90,3 +90,10 @@ export const modelWorkDataList = [
     category: "패션/뷰티",
   },
 ];
+
+// export const userData = undefined;
+export const userData = {
+  id: "wjk6044",
+  name: "우정균",
+  type: "미술",
+};

@@ -26,6 +26,7 @@ const IconWrapper = styled.div`
 const MainHeader = ({ setShowSideBar }) => {
   const handleClickMenu = () => {
     setShowSideBar(true);
+    document.body.style.overflow = "hidden";
   };
 
   return (
