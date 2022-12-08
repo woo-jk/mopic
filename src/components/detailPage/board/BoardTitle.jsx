@@ -6,15 +6,14 @@ const BoardTitleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 35px;
-  padding: 0 16px 0 26px;
+  padding-bottom: 35px;
 `;
 
-const Title = styled.h2`
-  font-size: 18px;
+const Title = styled.div`
   font-weight: 700;
-
-  margin: 0;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.3px;
 `;
 
 const IconWrapper = styled.div`

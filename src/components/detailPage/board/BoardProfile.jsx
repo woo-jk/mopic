@@ -6,9 +6,7 @@ const BoardProfileContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid #ECECEC;
   padding-bottom: 26px;
-  margin-bottom: 18px;
 `;
 
 const UserInfoContainer = styled.div`
@@ -16,7 +14,6 @@ const UserInfoContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 13px;
-  margin-left: 26px;
 `;
 
 const UserImage = styled.div`
@@ -48,15 +45,11 @@ const UserType = styled.div`
   font-size: 12px;
   font-weight: 500;
   color: #A8A8A8;
-
-  margin: 0;
 `;
 
 const IconContainer = styled.div`
   display: flex;
   gap: 11px;
-
-  margin-right: 16px;
 `;
 
 const IconWrapper = styled.div`

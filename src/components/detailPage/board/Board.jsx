@@ -11,7 +11,7 @@ const BoardContainer = styled.div`
   top: -45px;
   
   border-radius: 20px 20px 0px 0px;
-  padding: 24px 0 0 0;
+  padding: 24px 16px 0 26px;
   background-color: white;
 `;
 

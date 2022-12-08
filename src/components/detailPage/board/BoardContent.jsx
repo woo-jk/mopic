@@ -4,21 +4,21 @@ const BoardContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  border-top: 1px solid #ECECEC;
+  padding-top: 31px;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  
-  margin: 0 16px 0 26px;
+  gap: 11px;
 `;
 
 const Title = styled.div`
   font-size: 12px;
   font-weight: 600;
   color: #D1D1D1;
-
-  margin-bottom: 11px;
 `;
 
 const Description = styled.div`

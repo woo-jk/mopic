@@ -5,14 +5,12 @@ const BoardServiceContainer = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  border-bottom: 1px solid #ECECEC;
-  padding-bottom: 18px;
-  margin-bottom: 31px;
+  border-top 1px solid #ECECEC;
+  padding: 18px 0;
 `;
 
 const BoardServiceWrapper = styled.div`
   display: flex;
-  margin-left: 26px;
 `;
 
 const Title = styled.div`
