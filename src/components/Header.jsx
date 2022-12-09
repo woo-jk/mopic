@@ -6,6 +6,10 @@ const HeaderContainer = styled.div`
 
   padding-top: 25px;
   padding-bottom: 25px;
+
+  > div {
+    display: flex;
+  }
 `;
 
 const LeftChild = styled.div`
