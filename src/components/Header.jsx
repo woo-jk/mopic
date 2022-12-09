@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { XIcon } from "./Icon";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -22,11 +21,11 @@ const IconWrapper = styled.div`
   cursor: pointer;
 `;
 
-const Header = ({ text }) => {
+const Header = ({ text, children}) => {
   return (
     <HeaderContainer>
       <IconWrapper>
-        <XIcon />
+        {children}
       </IconWrapper>
       <Title>{text}</Title>
     </HeaderContainer>
