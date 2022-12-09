@@ -22,7 +22,7 @@ const IconWrapper = styled.div`
   cursor: pointer;
 `;
 
-const AppHeader = ({ text }) => {
+const Header = ({ text }) => {
   return (
     <HeaderContainer>
       <IconWrapper>
@@ -33,4 +33,4 @@ const AppHeader = ({ text }) => {
   );
 };
 
-export default AppHeader;
+export default Header;
