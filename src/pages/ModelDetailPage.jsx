@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const PageContainer = styled.div`
   position: relative;
-  margin: 0px -16px 0px -16px;
+  /* margin: 0px -16px 0px -16px; */
 `;
 
 const ModelDetailPage = () => {
