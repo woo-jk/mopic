@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
   padding: 35px 26px 0 22px;
   box-sizing: border-box;
   width: 100%;
-`;
+`; 
 
 const IconWrapper = styled.div`
   display: flex;

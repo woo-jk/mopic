@@ -10,8 +10,7 @@ const PageContainer = styled.div`
 `;
 
 const ModelDetailPage = () => {
-  const BOARDID = 0;
-  const data = modelWorkDataList[BOARDID];
+  const data = modelWorkDataList[0];
 
   return (
     <PageContainer>
