@@ -115,3 +115,22 @@ export const PersonIcon = () => {
     </svg>
   );
 };
+
+export const KaKaoTalkLoginIcon = () => {
+  return (
+    <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.49783 0C4.25166 0 0 3.25433 0 7.27068C0 9.85562 1.7632 12.1164 4.408 13.4089L3.51337 16.6464C3.47863 16.7432 3.50469 16.8526 3.58286 16.9242C3.63497 16.9747 3.70011 17 3.77829 17C3.83474 17 3.8912 16.9747 3.94331 16.9368L7.79109 14.4193C8.34697 14.495 8.92023 14.5414 9.50217 14.5414C14.7483 14.5414 19 11.287 19 7.27068C19 3.25433 14.7397 0 9.49783 0Z"
+        fill="#381E1E"
+      />
+    </svg>
+  );
+};
+
+export const NaverLoginIcon = () => {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.1658 8.02851L4.6095 0H0V15H4.82945V6.97149L10.3857 15H15V0H10.1658V8.02851Z" fill="white" />
+    </svg>
+  );
+};
