@@ -17,6 +17,8 @@ const TypeItem = styled.div`
   font-weight: 500;
   font-size: 18px;
   color: #6a6a6a;
+
+  cursor: pointer;
 `;
 
 const TypeList = () => {
