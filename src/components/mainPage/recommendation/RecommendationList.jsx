@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import ListTitle from "../ListTitle";
 import RecommendationItem from "./RecommendationItem";
@@ -61,11 +62,45 @@ const RegistrationButton = styled.div`
 `;
 
 const RecommendationList = ({ dataList }) => {
+  const scrollRef = useRef(null);
+  const [isDrag, setIsDrag] = useState(false);
+  const [startX, setStartX] = useState();
+
+  const onDragStart = (e) => {
+    e.preventDefault();
+    setIsDrag(true);
+    setStartX(e.pageX + scrollRef.current.scrollLeft);
+  };
+
+  const onDragEnd = () => {
+    setIsDrag(false);
+  };
+
+  const onDragMove = (e) => {
+    if (isDrag) {
+      const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+
+      scrollRef.current.scrollLeft = startX - e.pageX;
+
+      if (scrollLeft === 0) {
+        setStartX(e.pageX);
+      } else if (scrollWidth <= clientWidth + scrollLeft) {
+        setStartX(e.pageX + scrollLeft);
+      }
+    }
+  };
+
   return (
     <RecommendationListContainer>
       <ListTitle text="추천 서비스" />
       {dataList.length > 0 ? (
-        <ItemContainer>
+        <ItemContainer
+          ref={scrollRef}
+          onMouseDown={onDragStart}
+          onMouseMove={onDragMove}
+          onMouseUp={onDragEnd}
+          onMouseLeave={onDragEnd}
+        >
           {dataList.map((item) => (
             <RecommendationItem key={item.id} {...item} />
           ))}
