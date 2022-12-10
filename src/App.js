@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import EditProfilePage from "./pages/EditProfilePage";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
 import ModelDetailPage from "./pages/ModelDetailPage";
+import UserTypePage from "./pages/UserTypePage";
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  /* padding-left: 16px; */
-  /* padding-right: 16px; */
   box-sizing: border-box;
   background-color: white;
 
@@ -27,6 +27,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="model/:id" element={<ModelDetailPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="login/type/:id" element={<UserTypePage />} />
+          <Route path="edit/profile/:id" element={<EditProfilePage />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>

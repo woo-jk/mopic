@@ -3,31 +3,38 @@ import styled from "styled-components";
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 28px 0 43px 0;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  > div {
+    display: flex;
+  }
 `;
 
-const Title = styled.div`
+const LeftChild = styled.div`
+  width: 25%;
+  justify-content: start;
+`;
+
+const HeadText = styled.div`
+  width: 50%;
   font-weight: 700;
   font-size: 20px;
-  line-height: 34px;
-  letter-spacing: -0.3px;
-  margin: 0 auto;
+  justify-content: center;
 `;
 
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-
-  cursor: pointer;
+const RightChild = styled.div`
+  width: 25%;
+  justify-content: end;
 `;
 
-const Header = ({ text, children}) => {
+const Header = ({ leftChild, headText, rightChild }) => {
   return (
     <HeaderContainer>
-      <IconWrapper>
-        {children}
-      </IconWrapper>
-      <Title>{text}</Title>
+      <LeftChild>{leftChild}</LeftChild>
+      <HeadText>{headText}</HeadText>
+      <RightChild>{rightChild}</RightChild>
     </HeaderContainer>
   );
 };
