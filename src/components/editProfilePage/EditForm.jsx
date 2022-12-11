@@ -82,7 +82,7 @@ const RegisterButton = styled(Button)`
   margin-top: 60vh;
 `;
 
-const EditForm = ({userData}) => {
+const EditForm = ({ userData }) => {
   const [image, setImage] = useState(userData.image);
   const [nickname, setNickname] = useState(userData.name);
   const [nicknameError, setNicknameError] = useState(false);
@@ -125,23 +125,12 @@ const EditForm = ({userData}) => {
     <EditFormContainer>
       <FileContainer>
         <ProfileImage src={image} onClick={handleClickFileInput} />
-        <FileInput
-          type='file'
-          accept='image/*'
-          name='profile_img'
-          onChange={handleUploadFile}
-          ref={fileInput} />
+        <FileInput type='file' accept='image/*' name='profile_img' onChange={handleUploadFile} ref={fileInput} />
         <IconWrapper>
           <CameraIcon />
         </IconWrapper>
       </FileContainer>
-      <Input 
-        type="text" 
-        name="nickname"
-        value={nickname}
-        placeholder={nickname} 
-        onChange={handleNicknameInput}
-        isError={nicknameError} />
+      <Input name="nickname" value={nickname} placeholder={nickname} onChange={handleNicknameInput} isError={nicknameError} />
       {nicknameError && <InvalidInput>닉네임은 띄어쓰기 없이 한글, 영문, 숫자만 가능해요.</InvalidInput>}
       <RegisterButton onClick={handleClickButton} disabled={!userData}>등록하기</RegisterButton>
     </EditFormContainer>
