@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import OAuth2Kakao from "./pages/auth/OAuth2Kakao";
 import EditProfilePage from "./pages/EditProfilePage";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
@@ -27,8 +28,9 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="model/:id" element={<ModelDetailPage />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="login/type/:id" element={<UserTypePage />} />
+          <Route path="edit/type/:id" element={<UserTypePage />} />
           <Route path="edit/profile/:id" element={<EditProfilePage />} />
+          <Route path="oauth2/kakao" element={<OAuth2Kakao />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>
