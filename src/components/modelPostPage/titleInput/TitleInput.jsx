@@ -18,6 +18,12 @@ const Input = styled.input`
   letter-spacing: -0.3px;
   border:0;
 
+  background-color: white;
+
+  ::-webkit-input-placeholder { 
+    color: #A8A8A8; 
+  }
+
   ::-webkit-inner-spin-button{
     -webkit-appearance: none; 
     margin: 0; 
