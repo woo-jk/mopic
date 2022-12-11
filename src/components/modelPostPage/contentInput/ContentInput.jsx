@@ -38,6 +38,10 @@ const Input = styled.textarea`
   line-height: 25px;
   letter-spacing: -0.3px;
 
+  ::-webkit-input-placeholder { 
+    color: #BFBFBF; 
+  }
+
   &:focus {
     outline: none;
   }
