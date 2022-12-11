@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import Slider from "react-slick";
 import styled from "styled-components";
 import { LeftArrowIcon, RightArrowIcon } from "../Icon";
 
@@ -23,6 +24,9 @@ const LeftArrowIconWrapper = styled.div`
   border-radius: 50%;
 
   background: rgba(20, 20, 20, 0.2);
+
+  z-index: 1;
+
   cursor: pointer;
 `;
 
@@ -42,6 +46,9 @@ const RightArrowIconWrapper = styled.div`
   border-radius: 50%;
 
   background: rgba(20, 20, 20, 0.2);
+
+  z-index: 1;
+
   cursor: pointer;
 `;
 
@@ -63,6 +70,8 @@ const BannerPage = styled.div`
 
   font-size: 10px;
   font-weight: 700;
+
+  z-index: 1;
 `;
 
 const CurrentPage = styled.span`
@@ -74,38 +83,44 @@ const BannerImage = styled.img`
 `;
 
 const MainBanner = () => {
-  const MIN_PAGE = 1;
-  const MAX_PAGE = 2;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const decreasePage = () => {
-    if (currentPage - 1 < MIN_PAGE) {
-      setCurrentPage(MAX_PAGE);
-      return;
-    }
-    setCurrentPage(currentPage - 1);
-  };
+  const slickRef = useRef();
+  const previous = useCallback(() => {
+    slickRef.current.slickPrev();
+  }, []);
+  const next = useCallback(() => {
+    slickRef.current.slickNext();
+  }, []);
 
-  const increasePage = () => {
-    if (currentPage + 1 > MAX_PAGE) {
-      setCurrentPage(MIN_PAGE);
-      return;
-    }
-    setCurrentPage(currentPage + 1);
+  const images = [process.env.PUBLIC_URL + "banner/banner1.png", process.env.PUBLIC_URL + "banner/banner2.png"];
+
+  const slideSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    afterChange: (current) => setCurrentPage(current + 1),
   };
 
   return (
     <BannerContainer>
-      <LeftArrowIconWrapper onClick={decreasePage}>
+      <LeftArrowIconWrapper onClick={previous}>
         <LeftArrowIcon />
       </LeftArrowIconWrapper>
-      <RightArrowIconWrapper onClick={increasePage}>
+      <RightArrowIconWrapper onClick={next}>
         <RightArrowIcon />
       </RightArrowIconWrapper>
       <BannerPage>
         <CurrentPage>{currentPage}&nbsp;</CurrentPage> / 2
       </BannerPage>
-      <BannerImage src={process.env.PUBLIC_URL + `banner/banner${currentPage}.png`} alt="banner" />
+      <Slider {...slideSettings} ref={slickRef}>
+        {images.map((image, idx) => (
+          <BannerImage key={idx} src={image} alt="banner" />
+        ))}
+      </Slider>
     </BannerContainer>
   );
 };

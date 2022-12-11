@@ -7,7 +7,7 @@ const BackGround = styled.div`
   height: 100vh;
 
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 100;
 
   overflow: hidden;
 
