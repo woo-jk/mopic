@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import styled, { css } from "styled-components";
 import { CameraIcon } from "../Icon";
 import { Button } from "../Button";
@@ -9,7 +10,7 @@ const flexCenter = css`
   align-items: center;
 `;
 
-const EditFormContainer = styled.div`
+const EditFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +70,7 @@ const Input = styled.input`
   }
 `;
 
-const InvalidInput = styled.div`
+const InvalidInput = styled.span`
   font-weight: 500;
   font-size: 13px;
   line-height: 24px;
@@ -79,60 +80,92 @@ const InvalidInput = styled.div`
 `;
 
 const RegisterButton = styled(Button)`
-  margin-top: 60vh;
+  position: absolute;
+  width: 405px;
+  top: 770px;
 `;
 
 const EditForm = ({ userData }) => {
-  const [image, setImage] = useState(userData.image);
-  const [nickname, setNickname] = useState(userData.name);
-  const [nicknameError, setNicknameError] = useState(false);
+  const { 
+    register, 
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting } 
+  } = useForm({ 
+    mode: "onChange", 
+    defaultValues: {
+      fileInput: '', 
+      nickname: userData.name
+    } 
+  });
+
+  const [imagePreview, setImagePreview] = useState(userData.image);
+
   const fileInput = useRef(null);
+  const { ref, ...rest } = register("fileInput");
 
   const handleClickFileInput = () => {
-    fileInput.current.click();
-  }
-
-  const handleUploadFile = (e) => {
-    const reader = new FileReader();
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    setImage(file);
-    reader.onload = () => {
-      if(reader.readyState === 2) setImage(reader.result);
-    }
-    reader.readAsDataURL(file);
+    fileInput.current?.click();
   };
 
-  const handleNicknameInput = (e) => {
-    setNickname(e.target.value);
+  const image = watch("fileInput");
+  
+  useEffect(() => {
+    if (image && image.length > 0) {
+      const file = image[0];
+      setImagePreview(URL.createObjectURL(file));
+    } 
+  }, [image]);
+
+  const onSubmit = async (data) => {
+    await new Promise((r) => setTimeout(r, 1000));
+    alert(JSON.stringify(data));
   };
 
-  const isValidNickname = (nickname) =>{
-    const RegExp = /^[0-9가-힣a-zA-Z\s]{2,}$/;
-    if ((!nickname || (RegExp.test(nickname)))) setNicknameError(false);
-    else setNicknameError(true);
-    console.log(nicknameError);
-  };
-
-  const handleClickButton = () =>{
-    isValidNickname(nickname);
-    // TODO : create data
-  };
+  // const onError = (error) => {
+  //   console.log(error);
+  // };
 
   return (
-    <EditFormContainer>
-      <FileContainer>
-        <ProfileImage src={image} onClick={handleClickFileInput} />
-        <FileInput type='file' accept='image/*' name='profile_img' onChange={handleUploadFile} ref={fileInput} />
+    <EditFormContainer onSubmit={handleSubmit(onSubmit)}>
+      <FileContainer >
+        <ProfileImage src={imagePreview} onClick={handleClickFileInput} />
+        <FileInput 
+          id='image'
+          type='file'
+          accept='image/*'
+          {...rest}
+          ref={(e) => {
+            ref(e); 
+            fileInput.current = e;
+          }}
+        />
         <IconWrapper>
           <CameraIcon />
         </IconWrapper>
       </FileContainer>
-      <Input name="nickname" value={nickname} placeholder={nickname} onChange={handleNicknameInput} isError={nicknameError} />
-      {nicknameError && <InvalidInput>닉네임은 띄어쓰기 없이 한글, 영문, 숫자만 가능해요.</InvalidInput>}
-      <RegisterButton onClick={handleClickButton} disabled={!userData}>등록하기</RegisterButton>
+      <Input 
+        id="nickname"
+        type="text"
+        placeholder={userData.name}
+        isError={errors?.nickname}
+        {...register("nickname", {
+          required: { 
+            value: true,
+            message: "닉네임은 2자 이상 입력해주세요."
+          },
+          pattern: {
+            value: /^[0-9가-힣a-zA-Z\s]{2,}$/,
+            message: "닉네임은 띄어쓰기 없이 한글, 영문, 숫자만 가능해요."
+          },
+          minLength: {
+            value: 2,
+            message: "닉네임은 2자 이상 입력해주세요."
+          }
+        })}
+      />
+      { errors?.nickname && <InvalidInput>{errors.nickname.message}</InvalidInput> }
+      <RegisterButton disabled={isSubmitting}>등록하기</RegisterButton>
     </EditFormContainer>
   );
 };
