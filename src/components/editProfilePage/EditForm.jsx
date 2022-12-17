@@ -103,19 +103,18 @@ const EditForm = ({ userData }) => {
 
   const fileInput = useRef(null);
   const { ref, ...rest } = register("fileInput");
-
-  const handleClickFileInput = () => {
-    fileInput.current?.click();
-  };
-
   const image = watch("fileInput");
-  
+
   useEffect(() => {
     if (image && image.length > 0) {
       const file = image[0];
       setImagePreview(URL.createObjectURL(file));
     } 
   }, [image]);
+
+  const handleClickFileInput = () => {
+    fileInput.current?.click();
+  };
 
   const onSubmit = async (data) => {
     await new Promise((r) => setTimeout(r, 1000));
@@ -128,17 +127,17 @@ const EditForm = ({ userData }) => {
 
   return (
     <EditFormContainer onSubmit={handleSubmit(onSubmit)}>
-      <FileContainer >
+      <FileContainer>
         <ProfileImage src={imagePreview} onClick={handleClickFileInput} />
         <FileInput 
           id='image'
           type='file'
           accept='image/*'
-          {...rest}
           ref={(e) => {
             ref(e); 
             fileInput.current = e;
           }}
+          {...rest}
         />
         <IconWrapper>
           <CameraIcon />

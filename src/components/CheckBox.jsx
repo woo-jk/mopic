@@ -33,10 +33,10 @@ const Text = styled.p`
   color: #502CE8;
 `;
 
-const CheckBox = ({ text, onChange }) => {
+const CheckBox = ({ id, text, register, onChange}) => {
   return (
-    <CheckBoxLabel htmlFor={text}>
-      <StyledCheckBox type="checkbox" id={text} name={text} onChange={onChange} />
+    <CheckBoxLabel htmlFor={id}>
+      <StyledCheckBox {...register(id)} type="checkbox" id={id} onChange={onChange} />
       <Text>{text}</Text>
     </CheckBoxLabel>
   );

@@ -47,19 +47,23 @@ const Input = styled.textarea`
   }
 `;
 
-const ContentInput = ({ title, text, value, placeholder, onChange }) => {
+const ContentInput = ({ title, id, text, placeholder, register }) => {
   const ContentTitle = <TitleContainer>
-                      <Title>{text}</Title>
+                        <Title>{text}</Title>
                         <Option>(선택사항)</Option>
                        </TitleContainer>;
   return (
     <ContentContainer>
         {title && ContentTitle}
       <Input
-        name={text}
+        id={id}
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        {...register(id, { 
+          required: {
+            value: id === "form" ? false : true,
+            message: `${text}은 필수입력사항입니다.`,
+          }
+        })}
       />
     </ContentContainer>
   );
