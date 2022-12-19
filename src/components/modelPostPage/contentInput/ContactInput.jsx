@@ -32,6 +32,7 @@ const IconWrapper = styled.div`
 
 const Input = styled.input`
   box-sizing: border-box;
+  padding-left: 10px;
   width: 358px;
   height: 40px;
   left: 54px;
@@ -41,17 +42,20 @@ const Input = styled.input`
   font-size: 14px;
   line-height: 24px;
   
-//   color: #CDCDCD;
   letter-spacing: -0.3px;
   border: 1px solid #CDCDCD;
   border-radius: 6px;
+
+  ::-webkit-input-placeholder {
+    color: #CDCDCD; 
+  }
 
   &:focus {
     outline: none;
   }
 `;
 
-const ContactInput = ({ onChange }) => {
+const ContactInput = ({ register }) => {
   return (
     <ContactContainer>
       <Title>지원방법</Title>
@@ -59,13 +63,13 @@ const ContactInput = ({ onChange }) => {
         <IconWrapper>
           <KakaoTalkIcon />
         </IconWrapper>
-        <Input type="url" placeholder="카카오톡 오픈채팅 URL" onChange={(e) => onChange(e, 'kakaotalk')} />
+        <Input type="url" placeholder="카카오톡 오픈채팅 URL" {...register("kakaotalk")} />
       </URLContainer>
       <URLContainer>
         <IconWrapper>
           <InstargramIcon />
         </IconWrapper>
-        <Input type="url" placeholder="인스타그램 URL" onChange={(e) => onChange(e, 'instargram')} />
+        <Input type="url" placeholder="인스타그램 URL" {...register("instargram")} />
       </URLContainer>
     </ContactContainer>
   );

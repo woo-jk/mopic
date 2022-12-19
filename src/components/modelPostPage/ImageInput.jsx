@@ -72,7 +72,7 @@ const DeleteButton = styled.div`
 `;
 
 const ImageInput = ({ handleUploadFile, handleDeleteFile, currentCount, imageList }) => {
-  const fileInput = useRef();
+  const fileInput = useRef(null);
 
   const handleClickFileInput = () => {
     fileInput.current.click();
@@ -90,19 +90,21 @@ const ImageInput = ({ handleUploadFile, handleDeleteFile, currentCount, imageLis
       )
     })
   };
-  
+
   return (
     <ImageListContainer>
       <ImageContainer onClick={handleClickFileInput}>
         <StrokeCameraIcon />
         <CurrentCount><span style={{color: "#502CE8"}}>{currentCount}</span>/5</CurrentCount> 
       </ImageContainer>
-      <Input type="file" 
-             accept="image/*" 
-             multiple 
-             ref={fileInput}
-             disabled={ currentCount >= 5 }
-             onChange={(e) => handleUploadFile(e)}/>
+      <Input
+        type="file" 
+        accept="image/*" 
+        multiple
+        disabled={currentCount >= 5}
+        onChange={(e) => handleUploadFile(e)}
+        ref={fileInput}
+      />
       { getPreview() }
     </ImageListContainer>
   );

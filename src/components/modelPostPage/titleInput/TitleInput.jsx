@@ -18,6 +18,12 @@ const Input = styled.input`
   letter-spacing: -0.3px;
   border:0;
 
+  background-color: white;
+
+  ::-webkit-input-placeholder { 
+    color: #A8A8A8; 
+  }
+
   ::-webkit-inner-spin-button{
     -webkit-appearance: none; 
     margin: 0; 
@@ -32,17 +38,20 @@ const Input = styled.input`
   }
 `;
 
-const TitleInput = ({ type, text, value, children, onClick, onChange, disabled }) => {
+const TitleInput = ({ id, type, placeholder, disabled, register, children }) => {
   return (
     <InputContainer>
       <Input
+        id={id}
         type={type || "text"}
-        name={text}
-        placeholder={text}
-        value={value}
-        onClick={onClick}
-        onChange={onChange}
+        placeholder={placeholder}
         disabled={disabled}
+        {...register(id, { 
+          required: {
+            value: id === "region" ? false : true,
+            message: `${placeholder.replace('₩', '')}은 필수입력사항입니다.`,
+          }
+        })}
       />
       {children}
     </InputContainer>

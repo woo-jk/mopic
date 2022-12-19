@@ -21,9 +21,9 @@ const Select = styled.select`
 const Option = styled.option`
 `;
 
-const SelectBox = ({ value, regionData, onChange }) => {
+const SelectBox = ({ id, regionData, register }) => {
   return (
-    <Select value={value} onChange={onChange}>
+    <Select {...register(id)}>
       {regionData.map((region) => ( 
         <Option key={region.id} value={region.name}>{region.name}</Option>
       ))}
