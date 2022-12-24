@@ -43,7 +43,16 @@ const LoginPage = () => {
       <ContentContainer>
         <Logo src={process.env.PUBLIC_URL + `mopic_logo.png`} alt="logo" />
         <LoginButtonContainer>
-          <Button size="14px" weight="600" background="#FFE600" color="#381E1E">
+          <Button
+            size="14px"
+            weight="600"
+            background="#FFE600"
+            color="#381E1E"
+            onClick={() =>
+              (window.location.href =
+                "https://kauth.kakao.com/oauth/authorize?client_id=9b54f45ba686db5d6eb8cb8939bc703b&redirect_uri=http://localhost:3000/oauth2/kakao&response_type=code")
+            }
+          >
             <KaKaoTalkLoginIcon />
             카카오 로그인
           </Button>
