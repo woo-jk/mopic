@@ -71,7 +71,7 @@ const NeedLogin = styled.div`
 const UserMenu = ({ userData }) => {
   return (
     <UserMenuContainer>
-      {userData ? (
+      {userData.name ? (
         <UserProfileContainer>
           <UserNameAndType>
             <UserName>
