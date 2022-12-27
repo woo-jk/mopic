@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import Header from "../components/Header";
@@ -44,11 +45,22 @@ const SubText = styled.div`
 `;
 
 const UserTypePage = () => {
+  const navigate = useNavigate();
   const [selectedType, setSelectedType] = useState([]);
+
+  const handleClickBack = () => {
+    navigate("/login");
+  };
 
   return (
     <UserTypePageContainer>
-      <Header leftChild={<LeftArrowIcon color="black" width={12} height={20} />} />
+      <Header
+        leftChild={
+          <div onClick={handleClickBack}>
+            <LeftArrowIcon color="black" width={12} height={20} />
+          </div>
+        }
+      />
       <ContentContainer>
         <TextContainer>
           <Title>
