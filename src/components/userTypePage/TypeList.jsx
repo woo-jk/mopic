@@ -9,19 +9,28 @@ const TypeListContainer = styled.div`
 const TypeItem = styled.div`
   width: max-content;
 
-  border: 1px solid #d6d6d6;
+  border: 1px solid ${({ isSelected }) => (isSelected ? "#502CE8" : "#d6d6d6")};
   border-radius: 999px;
 
   padding: 13px 20px;
 
   font-weight: 500;
   font-size: 18px;
-  color: #6a6a6a;
+  color: ${({ isSelected }) => (isSelected ? "#502CE8" : "#6a6a6a")};
 
   cursor: pointer;
 `;
 
-const TypeList = () => {
+const TypeList = ({ selectedType, setSelectedType }) => {
+  const handleClickType = (e) => {
+    if (selectedType.includes(e.target.innerHTML)) {
+      setSelectedType(selectedType.filter((item) => item !== e.target.innerHTML));
+      return;
+    }
+    if (selectedType.length >= 3) return;
+    setSelectedType([...selectedType, e.target.innerHTML]);
+  };
+
   const types = [
     "반영구",
     "미술",
@@ -38,7 +47,9 @@ const TypeList = () => {
   return (
     <TypeListContainer>
       {types.map((item) => (
-        <TypeItem key={item}>{item}</TypeItem>
+        <TypeItem key={item} onClick={handleClickType} isSelected={selectedType.includes(item)}>
+          {item}
+        </TypeItem>
       ))}
     </TypeListContainer>
   );
