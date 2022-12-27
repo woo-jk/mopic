@@ -93,7 +93,7 @@ export const modelWorkDataList = [
 
 // export const userData = undefined;
 export const userData = {
-  id: "wjk6044",
-  name: "우정균",
-  type: "미술",
+  // id: "wjk6044",
+  // name: "우정균",
+  // type: "미술",
 };

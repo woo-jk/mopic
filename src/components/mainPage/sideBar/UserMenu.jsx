@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../Button";
 import { ProfileIcon } from "../../Icon";
@@ -69,9 +70,15 @@ const NeedLogin = styled.div`
 `;
 
 const UserMenu = ({ userData }) => {
+  const navigate = useNavigate();
+
+  const handleClickLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <UserMenuContainer>
-      {userData ? (
+      {userData.name ? (
         <UserProfileContainer>
           <UserNameAndType>
             <UserName>
@@ -87,9 +94,11 @@ const UserMenu = ({ userData }) => {
           </UserPictureAndModify>
         </UserProfileContainer>
       ) : (
-        <NeedLogin>로그인 해 주세요.</NeedLogin>
+        <NeedLogin onClick={handleClickLogin}>로그인 해 주세요.</NeedLogin>
       )}
-      <Button disabled={!userData}>구인글 올리기</Button>
+      <Button disabled={!userData.name} onClick>
+        구인글 올리기
+      </Button>
     </UserMenuContainer>
   );
 };

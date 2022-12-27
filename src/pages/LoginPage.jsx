@@ -11,7 +11,7 @@ const LoginPageContainer = styled.div`
   padding: 0 34px 0 34px;
 
   box-sizing: border-box;
-  /* background: #502ce8; */
+  background: #502ce8;
 `;
 
 const ContentContainer = styled.div`
@@ -25,7 +25,7 @@ const ContentContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 180px;
+  width: 300px;
 `;
 
 const LoginButtonContainer = styled.div`
@@ -41,7 +41,7 @@ const LoginPage = () => {
   return (
     <LoginPageContainer>
       <ContentContainer>
-        <Logo src={process.env.PUBLIC_URL + `mopic_logo.png`} alt="logo" />
+        <Logo src={process.env.PUBLIC_URL + `mopic_logo_white.png`} alt="logo" />
         <LoginButtonContainer>
           <Button
             size="14px"

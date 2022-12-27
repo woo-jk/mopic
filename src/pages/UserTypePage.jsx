@@ -1,4 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../components/Button";
 import Header from "../components/Header";
 import { LeftArrowIcon } from "../components/Icon";
 import TypeList from "../components/userTypePage/TypeList";
@@ -14,6 +17,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
 
   margin-top: 160px;
+  margin-bottom: 150px;
   padding-left: 18px;
   padding-right: 18px;
 
@@ -41,9 +45,22 @@ const SubText = styled.div`
 `;
 
 const UserTypePage = () => {
+  const navigate = useNavigate();
+  const [selectedType, setSelectedType] = useState([]);
+
+  const handleClickBack = () => {
+    navigate("/login");
+  };
+
   return (
     <UserTypePageContainer>
-      <Header leftChild={<LeftArrowIcon color="black" width={12} height={20} />} />
+      <Header
+        leftChild={
+          <div onClick={handleClickBack}>
+            <LeftArrowIcon color="black" width={12} height={20} />
+          </div>
+        }
+      />
       <ContentContainer>
         <TextContainer>
           <Title>
@@ -51,8 +68,9 @@ const UserTypePage = () => {
           </Title>
           <SubText>최대 3개 선택 가능</SubText>
         </TextContainer>
-        <TypeList />
+        <TypeList selectedType={selectedType} setSelectedType={setSelectedType} />
       </ContentContainer>
+      <Button disabled={selectedType.length === 0}>시작하기</Button>
     </UserTypePageContainer>
   );
 };
